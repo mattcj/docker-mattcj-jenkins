@@ -1,4 +1,4 @@
-FROM jenkins:1.596
+FROM jenkins:1.609
 
 USER root
 RUN apt-get update; apt-get install -y git
