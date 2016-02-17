@@ -1,4 +1,4 @@
-FROM jenkins:1.609.3
+FROM jenkins:1.642.1
 
 USER root
 RUN apt-get update; apt-get install -y git locales
