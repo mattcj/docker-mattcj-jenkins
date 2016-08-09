@@ -5,3 +5,4 @@ Extends the official 'jenkins' docker image:
 * adds git
 * changes LANG and LC_ALL to en_US.UTF-8
 * adds python-openssl
+* adds gcloud-sdk
