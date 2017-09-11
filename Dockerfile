@@ -9,11 +9,12 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Install Google-Cloud-SDK
-RUN cd /usr/local && curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-132.0.0-linux-x86.tar.gz | tar xz
-RUN /usr/local/google-cloud-sdk/install.sh -q
+RUN cd /usr/local && curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-170.0.1-linux-x86_64.tar.gz | tar xz
+RUN chown -R jenkins.jenkins /usr/local/google-cloud-sdk
 
 # switch user back to jenkins for subsequent container operations
 USER jenkins
+RUN /usr/local/google-cloud-sdk/install.sh -q
+RUN /usr/local/google-cloud-sdk/bin/gcloud components update -q
 # Include gcloud in path
 ENV PATH /usr/local/google-cloud-sdk/bin:$PATH
-RUN gcloud components update -q
